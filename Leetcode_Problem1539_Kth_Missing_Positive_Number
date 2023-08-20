@@ -13,4 +13,22 @@ int findKthPositive(int* arr, int arrSize, int k){
     return 0;
 }
 
+----------------------------------------------------------------------
 
+int findKthPositive(int* arr, int arrSize, int k){
+    int num = 0 , i = 0;
+    while((i < arrSize) && k)
+    {
+        if(arr[i] != (num + 1))
+        {
+            k--;
+            num++;
+        }
+        else
+        {
+            num = arr[i];
+            i++;
+        }
+    }
+    return !(k) ? num : (num + k);
+}
